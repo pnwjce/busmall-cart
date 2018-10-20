@@ -2,7 +2,7 @@
 
 'use strict';
 var selectElement = document.getElementById('items');
-
+var counter;
 // Set up an empty cart for use on this page.
 var cart = new Cart([]);
 
@@ -28,29 +28,35 @@ function handleSubmit(event) {
   addSelectedItemToCart();
   console.log(addSelectedItemToCart);
   cart.saveToLocalStorage();
+  
   updateCounter();
   updateCartPreview();
+  
   document.getElementById('catalog').reset();
 }
 
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
   // TODO: suss out the item picked from the select list
-  var itemSelected = selectElement.options[selectElement.selectedIndex].value;
-  // var index = Product.allProducts.indexOf('itemSelected');
-  // console.log(index);
-
+  var itemSelected = selectElement.options[selectElement.selectedIndex].id;
   // TODO: get the quantity
   var itemQuantity = document.getElementById('quantity').value;
-
   console.log(itemSelected, itemQuantity);
 
   // TODO: using those, add one item to the Cart
- cart.addItem(Product.allProducts[itemSelected], itemQuantity);
- console.log(cart);
+  cart.addItem(Product.allProducts[itemSelected], itemQuantity);
+  console.log(cart);
 }
 // TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {}
+function updateCounter() {
+  var totalQuantity = 0;
+  for (var i in cart.items){
+    totalQuantity += cart.items[i].quantity;
+  }
+
+  counter = document.getElementById('itemCount');
+  counter.textContent = totalQuantity;
+}
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
