@@ -3,6 +3,7 @@
 'use strict';
 var selectElement = document.getElementById('items');
 var counter;
+var totalQuantity;
 // Set up an empty cart for use on this page.
 var cart = new Cart([]);
 
@@ -49,11 +50,10 @@ function addSelectedItemToCart() {
 }
 // TODO: Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() {
-  var totalQuantity = 0;
+  totalQuantity = 0;
   for (var i in cart.items){
-    totalQuantity += cart.items[i].quantity;
+    totalQuantity += parseInt(cart.items[i].quantity);
   }
-
   counter = document.getElementById('itemCount');
   counter.textContent = totalQuantity;
 }

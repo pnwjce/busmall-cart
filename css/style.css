@@ -1,1 +1,61 @@
 /* TODO: Make it awesome */
+body{
+    width: 960px;
+    margin: auto;
+    border: 1px solid lightgray;
+    font-family: helvetica;
+}
+header{
+    background-color: lightgray;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+nav{
+    background-color: slategray;
+    color: white;
+    padding: 5px;
+    float: left;
+}
+header h1{
+    font-size: 36pt;
+    font-weight: bold;
+    text-align: center;
+}
+.card h1{
+    font-size: 18pt;
+}
+.card header{
+    background-color: white;
+}
+.copy{
+    padding: 10px;
+}
+ol{
+    list-style: inherit;
+    padding-left: 15px;
+}
+fieldset{
+    border: 1px solid lightgray;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+}
+nav ul li{
+    display: inline-block;
+    padding: 5px;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-style: italic;
+}
+a:hover{
+    color: lightskyblue;
+    font-style: bold italic;
+    text-decoration: underline;
+}
+footer{
+    background-color: lightgray;
+    padding: 20px;
+    text-align: center;
+}
